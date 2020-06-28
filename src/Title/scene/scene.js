@@ -92,7 +92,7 @@ class Scene extends Component{
         this.renderScene();
       }
 
-      componentDidUpdate(){
+      componentDidUpdate(prevProps){
           console.log(this.props.location); 
           var targetCameraPosition = LocationPositions[this.props.location]['start']['position']; 
           var targetRotation = LocationPositions[this.props.location]['start']['rotation']; 

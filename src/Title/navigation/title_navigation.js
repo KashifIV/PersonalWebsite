@@ -10,7 +10,7 @@ class TitleNavigation extends Component{
     render(){
         return(
             <div>
-                <Button onClick={this.callback}>
+                <Button onClick={() => this.callback()}>
                     Next
                 </Button>
             </div>

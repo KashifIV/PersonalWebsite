@@ -2,11 +2,11 @@ import * as THREE from 'three';
 const LocationPositons = {
     'station': {
         'start': {
-            'position': new THREE.Vector3(-5, 17, 40), 
+            'position': new THREE.Vector3(3, 17, 40), 
             'rotation': new THREE.Euler(0, 4.7, 0)
         },
         'end': {
-            'position': new THREE.Vector3(-5, 17, 42), 
+            'position': new THREE.Vector3(-5, 17, 40), 
             'rotation': new THREE.Euler(0, 4.7, 0)
         }
     }, 

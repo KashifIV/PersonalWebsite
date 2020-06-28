@@ -12,7 +12,18 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.button {
+  height: 100px; 
+  width: 350px;
+  font-size: 20pt;
+  align-self: flex-end;
+  bottom: 0; 
+  position: fixed;
+  opacity: 0.5;
+}
+.button :hover{
+  opacity: 1;
+}
 .App-header {
   min-height: 100vh;
   display: flex;
