@@ -2,17 +2,24 @@ import React, {Component} from 'react';
 import * as THREE from 'three'; 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import {Easing, Tween, autoPlay} from 'es6-tween'; 
-import overpass from '../../models/Overpass.glb'
+import overpass from '../../models/Overpass_w_station.glb'
 import style from './scene.module.css'; 
+
+import LocationPositions from './location_positions'; 
 
 class Scene extends Component{
     constructor(props){
         super(props);
 
+        this.state={
+          location: this.props.location
+        };
+
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
         this.animate = this.animate.bind(this);
     }
+    
     componentDidMount() {
         autoPlay(true); 
         const width = window.innerWidth; 
@@ -56,9 +63,9 @@ class Scene extends Component{
         const renderer = new THREE.WebGLRenderer({ antialias: true });
     
         camera.position.z = -23.3;
-        camera.position.x = -12;
+        camera.position.x = -5;
         camera.position.y = 17; 
-        camera.rotateY(3.5); 
+        camera.rotation.copy(new THREE.Euler(0, 3.5, 0)); 
         renderer.setSize(width, height);
         renderer.setClearColor(0x5DC8DE); 
 
@@ -66,21 +73,40 @@ class Scene extends Component{
         this.camera = camera;
         this.renderer = renderer;
 
-        var targetCameraPosition = new THREE.Vector3(-9, 6, -23.3); 
-        var targetRotation = 2; 
-        var cameraTween = new Tween(new THREE.Vector3().copy(camera.position))
-            .to(targetCameraPosition, 3000)
+        // var targetCameraPosition = new THREE.Vector3(-9, 6, -23.3); 
+        var targetCameraPosition = new THREE.Vector3(3, 18, 40); 
+        var targetRotation = new THREE.Euler(0, 4.7, 0); 
+        var cameraTween = new Tween([new THREE.Vector3().copy(camera.position), new THREE.Euler().copy(camera.rotation)])
+            .to([targetCameraPosition, targetRotation], 3000)
             .on('update', (vec) => 
             {
-                this.camera.position.copy(vec); 
+                this.camera.position.copy(vec[0]); 
+                this.camera.rotation.copy(vec[1]); 
                 this.animate();
             })
-            .easing(Easing.Exponential)
+            .easing(Easing.Exponential.Out)
             .start(); 
     
         this.mount.appendChild(this.renderer.domElement);
         this.count = 1.0; 
-        // this.start();
+        this.renderScene();
+      }
+
+      componentDidUpdate(){
+          console.log(this.props.location); 
+          var targetCameraPosition = LocationPositions[this.props.location]['start']['position']; 
+          var targetRotation = LocationPositions[this.props.location]['start']['rotation']; 
+          
+          var cameraTween = new Tween([new THREE.Vector3().copy(this.camera.position), new THREE.Euler().copy(this.camera.rotation)])
+              .to([targetCameraPosition, targetRotation], 3000)
+              .on('update', (vec) => 
+              {
+                  this.camera.position.copy(vec[0]); 
+                  this.camera.rotation.copy(vec[1]); 
+                  this.animate();
+              })
+              .easing(Easing.Exponential.Out)
+              .start(); 
       }
     
       componentWillUnmount() {
