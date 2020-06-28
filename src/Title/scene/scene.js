@@ -1,6 +1,7 @@
 import React, {Component} from 'react'; 
 import * as THREE from 'three'; 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import {Easing, Tween, autoPlay} from 'es6-tween'; 
 import overpass from '../../models/Overpass.glb'
 import style from './scene.module.css'; 
 
@@ -13,6 +14,7 @@ class Scene extends Component{
         this.animate = this.animate.bind(this);
     }
     componentDidMount() {
+        autoPlay(true); 
         const width = window.innerWidth; 
         const height = window.innerHeight; 
         const scene = new THREE.Scene();
@@ -54,20 +56,31 @@ class Scene extends Component{
         const renderer = new THREE.WebGLRenderer({ antialias: true });
     
         camera.position.z = -23.3;
-        camera.position.x = -9;
-        camera.position.y = 6; 
+        camera.position.x = -12;
+        camera.position.y = 17; 
         camera.rotateY(3.5); 
         renderer.setSize(width, height);
         renderer.setClearColor(0x5DC8DE); 
-    
+
         this.scene = scene;
         this.camera = camera;
         this.renderer = renderer;
 
+        var targetCameraPosition = new THREE.Vector3(-9, 6, -23.3); 
+        var targetRotation = 2; 
+        var cameraTween = new Tween(new THREE.Vector3().copy(camera.position))
+            .to(targetCameraPosition, 3000)
+            .on('update', (vec) => 
+            {
+                this.camera.position.copy(vec); 
+                this.animate();
+            })
+            .easing(Easing.Exponential)
+            .start(); 
     
         this.mount.appendChild(this.renderer.domElement);
         this.count = 1.0; 
-        this.start();
+        // this.start();
       }
     
       componentWillUnmount() {
@@ -87,13 +100,14 @@ class Scene extends Component{
     
       animate() {
         this.renderScene();
-        this.frameId = window.requestAnimationFrame(this.animate);
-        if (this.camera.position.x < -5){
-            this.camera.position.x += 0.2/this.count;
-            if (this.count < 50 && this.camera.position.x < -6){
-                this.count+= 1.0;  
-            }
-        }
+        // this.frameId = window.requestAnimationFrame(this.animate);
+        
+        // if (this.camera.position.x < -5){
+        //     this.camera.position.x += 0.2/this.count;
+        //     if (this.count < 50 && this.camera.position.x < -6){
+        //         this.count+= 1.0;  
+        //     }
+        // }
       }
     
       renderScene() {
