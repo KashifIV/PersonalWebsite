@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap';
 
 function App() {
 
-  const locations = ['station', 'overpass']
+  const locations = ['station', 'crossing', 'overpass']
   const [locationIndex, setLocationIndex] = useState(0); 
 
   const onClickNav = () => {
@@ -20,6 +20,7 @@ function App() {
         <Button className='button' onClick={onClickNav}>
           Next
         </Button>
+        <TitleName/>
         <Scene location={locations[locationIndex]}/>
       </header>
     </div>

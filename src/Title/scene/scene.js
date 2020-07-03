@@ -10,11 +10,7 @@ import LocationPositions from './location_positions';
 class Scene extends Component{
     constructor(props){
         super(props);
-
-        this.state={
-          location: this.props.location
-        };
-
+        this.currentTween = null; 
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
         this.animate = this.animate.bind(this);
@@ -93,6 +89,9 @@ class Scene extends Component{
       }
 
       componentDidUpdate(prevProps){
+        if (this.currentTween != null) {
+          this.currentTween.stop(); 
+        }
           console.log(this.props.location); 
           var targetCameraPosition = LocationPositions[this.props.location]['start']['position']; 
           var targetRotation = LocationPositions[this.props.location]['start']['rotation']; 
@@ -105,8 +104,24 @@ class Scene extends Component{
                   this.camera.rotation.copy(vec[1]); 
                   this.animate();
               })
+              .on('complete', () => {
+                var idlePos = LocationPositions[this.props.location]['end']['position']; 
+                var idleRotate = LocationPositions[this.props.location]['end']['rotation'];  
+                var tween = new Tween([new THREE.Vector3().copy(this.camera.position), new THREE.Euler().copy(this.camera.rotation)])
+                  .to([idlePos, idleRotate], 20000)
+                  .on('update', (vec) => 
+                  {
+                      this.camera.position.copy(vec[0]); 
+                      this.camera.rotation.copy(vec[1]); 
+                      this.animate();
+                  })
+                  .easing(Easing.Cubic.InOut)
+                  .start(); 
+                  this.currentTween = tween; 
+              })
               .easing(Easing.Exponential.Out)
               .start(); 
+          this.currentTween = cameraTween; 
       }
     
       componentWillUnmount() {

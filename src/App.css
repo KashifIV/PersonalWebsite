@@ -19,7 +19,6 @@
   align-self: flex-end;
   bottom: 0; 
   position: fixed;
-  opacity: 0.5;
 }
 .button :hover{
   opacity: 1;
