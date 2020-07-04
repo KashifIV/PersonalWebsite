@@ -40,16 +40,20 @@ function TitleName(props){
             <Container>
                 <Row>
                     <Col sm={8}>
-                        <motion.div animate={title_animation}>
-                            <h1 className={style.title}>
-                                Kashif Hussain
-                            </h1>
-                            <p className={style.tag}>create. learn. develop</p> 
-                        </motion.div>
-                        <motion.div animate={divide_animation} className={style.divide}/>
+                        <div className={style.focalAnim}>
+                            <motion.div animate={title_animation}>
+                                <h1 className={style.title}>
+                                    Kashif Hussain
+                                </h1>
+                                <p className={style.tag}>create. learn. develop.</p> 
+                            </motion.div>
+                            <motion.div animate={divide_animation} className={style.divide}/>
+                        </div>
                     </Col>
                     <Col sm={2}>
-                        <TitleHeader name="skills"/>
+                        <TitleHeader name="experience."/>
+                        <TitleHeader name="skills."/>
+                        <TitleHeader name="projects."/>
                     </Col>
                 </Row>
             </Container>

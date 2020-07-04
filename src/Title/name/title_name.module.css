@@ -28,7 +28,7 @@
     background-color: white;
     color: white; 
     width: 7px; 
-    height: 200px; 
+    height: 400px; 
     z-index: 3; 
     opacity: 0; 
     margin-right: 8vw;
@@ -49,9 +49,12 @@
     bottom: 0; 
 
 }
+.focalAnim{
+    top: 40%; 
+}
 
 .content{
-    top: 40%; 
+    top: 30%; 
     opacity: 1; 
     position: relative;
     display: flex;

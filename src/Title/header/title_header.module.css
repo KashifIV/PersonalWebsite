@@ -1,6 +1,22 @@
 .headerBox{
     height: 90px; 
-    width: 50vw; 
+    width: 25vw; 
     right: 0; 
-    
+    margin: 0;
+
+}
+
+.text{
+    padding: 10px; 
+
+}
+
+.headerContent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    padding: 20px; 
 }
