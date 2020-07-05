@@ -3,6 +3,7 @@ import style from './title_name.module.css';
 import {motion, useAnimation} from 'framer-motion'; 
 import {Container, Row, Col} from 'react-bootstrap'; 
 import TitleHeader from '../header/title_header'; 
+import {hide_props, divide_props, title_props, background_props} from './title_name_anim'; 
 
 function TitleName(props){
 
@@ -10,24 +11,9 @@ function TitleName(props){
     const title_animation = useAnimation(); 
 
     const [isHidden, setHidden] = useState(false); 
-    const title_props = {
-        x: - (window.innerWidth/12 + 10), 
-        textAlign: 'right', 
-        transition: {
-            duration: 1,
-            ease: "easeInOut",
-        }
-    }; 
 
     const divide_animation = useAnimation(); 
-    const divide_props = {
-        y: -100, 
-        opacity: 1, 
-        transition: {
-            duration: 1,
-            ease: "easeInOut",
-        }
-    }; 
+    const background_animation = useAnimation(); 
 
     const transitionTitle = () => {
         title_animation.start(title_props); 
@@ -36,6 +22,9 @@ function TitleName(props){
 
     const click = (location) => {
         setHidden(true); 
+        divide_animation.start(hide_props); 
+        title_animation.start(hide_props); 
+        background_animation.start(background_props); 
         callback(location); 
     }
 
@@ -44,7 +33,7 @@ function TitleName(props){
 
     return (
         <div className={style.content}>
-             <div className={style.background} style={{opacity: 0.6}}/>    
+            <motion.div animate={background_animation} className={style.background} style={{opacity: 0.6}}/>    
             <Container>
                 <Row>
                     <Col sm={8}>

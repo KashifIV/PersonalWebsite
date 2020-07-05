@@ -1,0 +1,11 @@
+{
+    "Languages": [
+        "C#", "C++", "Python", "Dart", "Ruby", "Java", "Javascript", "Shell"
+    ], 
+    "Technologies": [
+        ".NET Core", "React", "Flutter", "Firebase", "IBM Cloud", "Docker", "Kubernetes", "Jenkins", "Travis", "Razee", "Rspec", "Unity"
+    ], 
+    "Creative": [
+        "After Effects", "Illustrator", "Photoshop", "Adobe XD", "Blender 2.8"
+    ]
+}

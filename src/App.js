@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TitleName from './Title/name/title_name'
+import Skills from './Skills/skills'; 
 import Scene from './Title/scene/scene'; 
 import TitleNavigation from './Title/navigation/title_navigation'; 
 import { Button } from 'react-bootstrap';
@@ -18,6 +19,9 @@ function App() {
     if (index == 0){
       return <TitleName callback={onClickNav}/> 
     } 
+    else if (index == 2){
+      return <Skills callback={onClickNav}/>
+    }
   }
 
   const locations = ['station', 'crossing', 'overpass']
@@ -29,7 +33,9 @@ function App() {
     setTimeout(() => {
       setTitle(getTitle(locationIndex)); 
     }, 1000)
-  }, [locationIndex])
+  }, [locationIndex]); 
+
+
   return (
     <div className="App">
       <header className="App-header">
