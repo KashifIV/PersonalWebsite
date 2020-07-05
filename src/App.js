@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TitleName from './Title/name/title_name'
@@ -8,19 +8,32 @@ import { Button } from 'react-bootstrap';
 
 function App() {
 
+  const onClickNav = (location_name) => {
+    console.log("clicked")
+    setLocationIndex(locations.findIndex((item) => item == location_name)); 
+  }; 
+
+
+  const getTitle = (index) => {
+    if (index == 0){
+      return <TitleName callback={onClickNav}/> 
+    } 
+  }
+
   const locations = ['station', 'crossing', 'overpass']
   const [locationIndex, setLocationIndex] = useState(0); 
+  const [title, setTitle] = useState(getTitle(0)); 
+  
 
-  const onClickNav = () => {
-    setLocationIndex((locationIndex + 1)% locations.length); 
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setTitle(getTitle(locationIndex)); 
+    }, 1000)
+  }, [locationIndex])
   return (
     <div className="App">
       <header className="App-header">
-        <Button className='button' onClick={onClickNav}>
-          Next
-        </Button>
-        <TitleName/>
+        {title}
         <Scene location={locations[locationIndex]}/>
       </header>
     </div>
