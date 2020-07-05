@@ -1,0 +1,16 @@
+.buttonBackground{
+    /* background-color: rgba(0, 0, 0, 0.322); */
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px 30px 2px 0px;
+}
+.buttonText{
+    text-align: start;
+    font-size: 1.5vw;
+}
+.underline{
+    background-color: white;
+    width: 15px;
+    height: 5px;
+    border-radius: 20px;
+}
