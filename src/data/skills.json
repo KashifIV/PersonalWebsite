@@ -2,10 +2,10 @@
     "Languages": [
         "C#", "C++", "Python", "Dart", "Ruby", "Java", "Javascript", "Shell"
     ], 
-    "Technologies": [
-        ".NET Core", "React", "Flutter", "Firebase", "IBM Cloud", "Docker", "Kubernetes", "Jenkins", "Travis", "Razee", "Rspec", "Unity"
-    ], 
     "Creative": [
-        "After Effects", "Illustrator", "Photoshop", "Adobe XD", "Blender 2.8"
+        "After Effects", "Illustrator", "Photoshop", "Adobe XD", "Blender"
+    ], 
+    "Technologies": [
+        "React", "Flutter", "Firebase", ".NET Core", "Docker", "Kubernetes", "IBM Cloud","Jenkins", "Travis", "Razee", "Rspec", "Unity"
     ]
 }

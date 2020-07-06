@@ -9,14 +9,14 @@ function UnderliningButton(props) {
   const textAnim = useAnimation();
   const textProps = {
     start: {
-      letterSpacing: 0.4 + "em",
+      letterSpacing: 5 + "px",
       transition: {
         duration: 1,
         ease: "easeInOut",
       },
     },
     end: {
-      letterSpacing: 0.1 + "em",
+      letterSpacing: 1,
       transition: {
         duration: 1,
         ease: "easeInOut",
@@ -27,7 +27,7 @@ function UnderliningButton(props) {
   const underlineAnim = useAnimation();
   const underlineProps = {
     start: {
-      width: 10 + "vw",
+      width: 100 + "px",
       transition: {
         duration: 1,
         ease: "easeInOut",
@@ -44,7 +44,7 @@ function UnderliningButton(props) {
 
   const handleHoverStart = () => {
     underlineAnim.start(underlineProps["start"]);
-    textAnim.start(textProps["start"]);
+    textAnim.start(textProps.start);
   };
 
   const handleHoverEnd = () => {
@@ -64,11 +64,12 @@ function UnderliningButton(props) {
 
   return (
     <motion.div
-      whileHover={{
-        scale: 1.1,
-        transition: { duration: 0.2 },
-      }}
+    //   whileHover={{
+    //     scale: 1.1,
+    //     transition: { duration: 0.2 },
+    //   }}
       whileTap={{
+        scale: 1.1,
         backgroundColor: "rgba(0, 0, 0, 0.322)",
         borderRadius: 20 + "px",
         padding: "0px 10px 0px 30px",

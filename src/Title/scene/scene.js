@@ -14,8 +14,10 @@ class Scene extends Component{
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
         this.animate = this.animate.bind(this);
+        this.updateSize = this.updateSize.bind(this); 
+
     }
-    
+
     componentDidMount() {
         autoPlay(true); 
         const width = window.innerWidth; 
@@ -63,7 +65,8 @@ class Scene extends Component{
         camera.position.y = 17; 
         camera.rotation.copy(new THREE.Euler(0, 3.5, 0)); 
         renderer.setSize(width, height);
-        renderer.setClearColor(0x5DC8DE); 
+        // renderer.setClearColor(0x5DC8DE); 
+        renderer.setClearColor(0x13D696); 
 
         this.scene = scene;
         this.camera = camera;
@@ -86,6 +89,7 @@ class Scene extends Component{
         this.mount.appendChild(this.renderer.domElement);
         this.count = 1.0; 
         this.renderScene();
+        window.addEventListener('resize', this.updateSize, false); 
       }
 
       componentDidUpdate(prevProps){
@@ -138,6 +142,20 @@ class Scene extends Component{
       stop() {
         cancelAnimationFrame(this.frameId);
       }
+
+      renderScene() {
+        this.renderer.render(this.scene, this.camera);
+      }
+
+      updateSize(){
+        console.log("Updating size " + window.innerWidth); 
+        console.log(this.camera.aspect); 
+        this.camera.aspect = window.innerWidth/window.innerHeight; 
+        this.camera.updateProjectionMatrix(); 
+        this.renderer.setSize(window.innerWidth, window.innerHeight); 
+        this.animate(); 
+      }
+      
     
       animate() {
         this.renderScene();
@@ -151,9 +169,7 @@ class Scene extends Component{
         // }
       }
     
-      renderScene() {
-        this.renderer.render(this.scene, this.camera);
-      }
+
     
       render() {
         return (

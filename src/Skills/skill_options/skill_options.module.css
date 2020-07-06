@@ -1,0 +1,16 @@
+.skillsTitle{
+    font-size: calc(10px + 8vmin);
+    text-align: center;
+    padding: 1px; 
+    text-shadow: 3px 5px #000000;
+    align-content: center;
+}
+
+.skillOptions{
+    position: absolute; 
+    align-content: center;
+    align-self: center;
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, 0);
+}

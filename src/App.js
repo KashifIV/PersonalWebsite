@@ -38,6 +38,7 @@ function App() {
 
   return (
     <div className="App">
+      <TitleNavigation callback={() => onClickNav("station")} index={locationIndex}/>
       <header className="App-header">
         {title}
         <Scene location={locations[locationIndex]}/>

@@ -1,0 +1,35 @@
+.background{
+    position: absolute;
+    z-index: 0;
+    background-color: black;
+    height: 40vh;
+    width: 100vw;
+    opacity: 0.6;
+    bottom: 0; 
+    left: 0; 
+}
+
+.table {
+    display: block;   /* Allow the centering to work */
+    margin: 10px, auto; 
+}
+
+.horizontalList{
+    min-width: 696px;
+	list-style-type: none;
+    padding-top: 0px;
+}
+.horizontalList li {
+    display: inline-block;
+    padding: 10px; 
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.listContent{
+    position: absolute;
+    top: 80%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}

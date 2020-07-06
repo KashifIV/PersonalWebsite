@@ -20,8 +20,8 @@ function TitleHeader(props){
 
     const transitionHeader = () => {
         box_slide.start(outer_anim_props); 
-        setTimeout(box_slide_b.start(inner_anim_props), 500);
-        setTimeout(box_slide_c.start(inner_anim_props), 1000);  
+        setTimeout(() => box_slide_b.start(inner_anim_props), 500);
+        setTimeout(() => box_slide_c.start(inner_anim_props), 1000);  
     }; 
     const hideHeader = () => {
         anims.forEach((item) => {
