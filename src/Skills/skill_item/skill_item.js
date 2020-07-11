@@ -30,9 +30,11 @@ function SkillItem(props){
         if (props.isClosing){
             animateOut(); 
         }
+        else {
+            setTimeout(() => general_anim.start(general_anim_props), 500 + index*100); 
+        }
     }, [props.isClosing]); 
 
-    setTimeout(() => general_anim.start(general_anim_props), 500 + index*100); 
     
 
     return(

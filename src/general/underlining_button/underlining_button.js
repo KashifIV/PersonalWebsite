@@ -55,7 +55,7 @@ function UnderliningButton(props) {
   };
 
   useEffect(() => {
-    if (isSelected) {
+    if (props.isSelected) {
       handleHoverStart();
     } else {
       setTimeout(handleHoverEnd, 700);

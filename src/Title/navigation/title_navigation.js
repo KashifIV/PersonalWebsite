@@ -22,16 +22,12 @@ function TitleNavigation(props){
     }; 
 
     useEffect(() => {
-        if (props.index == 0){
+        if (props.isKilling){
             anim.start(anim_props.hide); 
         }
-        else {
-            console.log("Showing"); 
-            anim.start(anim_props.show); 
-        }
-    }, [props.index])
+    }, [props.isKilling])
 
-
+    anim.start(anim_props.show); 
 
     return(
         <motion.div

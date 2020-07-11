@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import style from './skill_list.module.css'; 
 import SkillItem from '../skill_item/skill_item'; 
 import {motion, useAnimation} from 'framer-motion'; 
@@ -11,14 +11,34 @@ function SkillList(props){
 
     const background_anim = useAnimation(); 
     const background_anim_props = {
-        y: 0, 
-        transition: {
-            duration: 1, 
-            ease: "easeInOut"
+        show: {
+            y: 0, 
+            transition: {
+                duration: 1, 
+                ease: "easeInOut"
+            }
+        }, 
+        hide: {
+            y: 500, 
+            transition: {
+                duration: 1, 
+                ease: "easeInOut"
+            }
         }
+       
     }; 
 
-    background_anim.start(background_anim_props); 
+    const back = () => {
+        background_anim.start(background_anim_props.hide); 
+    }
+
+    useEffect(() => {
+        if (props.isKilling){
+            back(); 
+        }
+    }, [props.isKilling])
+
+    background_anim.start(background_anim_props.show); 
 
     return(<div>
         <motion.div animate={background_anim} className={style.background} style={{y: 500}}/>

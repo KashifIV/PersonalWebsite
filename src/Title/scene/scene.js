@@ -65,8 +65,9 @@ class Scene extends Component{
         camera.position.y = 17; 
         camera.rotation.copy(new THREE.Euler(0, 3.5, 0)); 
         renderer.setSize(width, height);
-        // renderer.setClearColor(0x5DC8DE); 
-        renderer.setClearColor(0x13D696); 
+
+        this.clearColor = new THREE.Color(0x5DC8DE); 
+        renderer.setClearColor(this.clearColor); 
 
         this.scene = scene;
         this.camera = camera;
@@ -99,11 +100,14 @@ class Scene extends Component{
           console.log(this.props.location); 
           var targetCameraPosition = LocationPositions[this.props.location]['start']['position']; 
           var targetRotation = LocationPositions[this.props.location]['start']['rotation']; 
+          var targetColor  = LocationPositions[this.props.location]['start']['color']; 
           
-          var cameraTween = new Tween([new THREE.Vector3().copy(this.camera.position), new THREE.Euler().copy(this.camera.rotation)])
-              .to([targetCameraPosition, targetRotation], 3000)
+          var cameraTween = new Tween([new THREE.Vector3().copy(this.camera.position), new THREE.Euler().copy(this.camera.rotation), new THREE.Color().copy(this.clearColor)])
+              .to([targetCameraPosition, targetRotation, targetColor], 3000)
               .on('update', (vec) => 
               {
+                  this.clearColor = vec[2]; 
+                  this.renderer.setClearColor(vec[2]); 
                   this.camera.position.copy(vec[0]); 
                   this.camera.rotation.copy(vec[1]); 
                   this.animate();
