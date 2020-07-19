@@ -1,5 +1,5 @@
 const outer_anim_props = {
-    x: -(window.innerWidth/12 - 10), 
+    y: 0,
     opacity: 1, 
     transition: {
         duration: 1, 

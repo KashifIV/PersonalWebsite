@@ -4,6 +4,7 @@ import './App.css';
 import TitleName from './Title/name/title_name'
 import Skills from './Skills/skills'; 
 import Scene from './Title/scene/scene'; 
+import Experience from './Experience/experience'; 
 import TitleNavigation from './Title/navigation/title_navigation'; 
 import { Button } from 'react-bootstrap';
 
@@ -18,6 +19,9 @@ function App() {
   const getTitle = (index) => {
     if (index == 0){
       return <TitleName callback={onClickNav}/> 
+    }
+    else if (index == 1){
+      return <Experience callback={onClickNav}/>
     } 
     else if (index == 2){
       return <Skills callback={onClickNav}/>

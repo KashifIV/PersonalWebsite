@@ -16,8 +16,7 @@ const divide_props = {
 }; 
 
 const title_props = {
-    x: - (window.innerWidth/12 + 10), 
-    textAlign: 'right', 
+    y: -200, 
     transition: {
         duration: 1,
         ease: "easeInOut",

@@ -3,6 +3,8 @@ import style from './title_name.module.css';
 import {motion, useAnimation} from 'framer-motion'; 
 import {Container, Row, Col} from 'react-bootstrap'; 
 import TitleHeader from '../header/title_header'; 
+import Lottie from 'react-lottie'; 
+import animationData from '../../models/images/name_reveal.json'; 
 import {hide_props, divide_props, title_props, background_props} from './title_name_anim'; 
 
 function TitleName(props){
@@ -30,30 +32,32 @@ function TitleName(props){
 
     setTimeout(transitionTitle, 2000); 
 
+    const defaultOptions = {
+        loop: false,
+        autoplay: true,
+        animationData: animationData,
+      };
+
 
     return (
         <div className={style.content}>
             <motion.div animate={background_animation} className={style.background} style={{opacity: 0.6}}/>    
-            <Container>
-                <Row>
-                    <Col sm={8}>
-                        <div className={style.focalAnim}>
-                            <motion.div animate={title_animation}>
-                                <h1 className={style.title}>
-                                    Kashif Hussain
-                                </h1>
-                                <p className={style.tag}>create. learn. develop.</p> 
-                            </motion.div>
-                            <motion.div animate={divide_animation} className={style.divide}/>
-                        </div>
-                    </Col>
-                    <Col sm={2}>
-                        <TitleHeader name="experience." callback={() => click("station")} isHidden={isHidden}/>
-                        <TitleHeader name="skills." callback={() => click("overpass")} isHidden={isHidden}/>
-                        <TitleHeader name="projects." callback={() => click("crossing")} isHidden={isHidden}/>
-                    </Col>
-                </Row>
-            </Container>
+            <motion.div animate={title_animation}>
+                <Lottie 
+                    options={defaultOptions}
+                    height={window.innerHeight}
+                    eventListeners={[
+                        {
+                        eventName: "complete",
+                        callback: () =>
+                            transitionTitle()
+                        },
+                    ]}
+                />
+            </motion.div>
+            <TitleHeader name="experience." callback={() => click("crossing")} isHidden={isHidden} num={1}/>
+            <TitleHeader name="skills." callback={() => click("overpass")} isHidden={isHidden} num={2}/>
+            <TitleHeader name="projects." callback={() => click("crossing")} isHidden={isHidden} num={3}/>
     </div>); 
     
 }
