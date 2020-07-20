@@ -60,7 +60,7 @@ function UnderliningButton(props) {
     } else {
       setTimeout(handleHoverEnd, 700);
     }
-  });
+  }, [props.isSelected]);
 
   return (
     <motion.div

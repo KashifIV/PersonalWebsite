@@ -1,0 +1,40 @@
+{
+    "experience": [
+        {
+            "Title": "Cloud Automation Developer", 
+            "Company": "IBM Canada LTD", 
+            "Date Range" : "January 2020  - December 2020", 
+            "Location" : "Markham, Ontario Canada", 
+            "Bullets": [
+                "Responsible for the deployment pipeline of IBM’s new Hybrid Cloud offering: Satellite Link, aimed at providing simplified application-level firewall management. ",
+                "Lead critical tasks to completion including the transition of the pipeline to a new technology stack & pivoting the naming scheme of all our components. ",
+                "Contributed 50% of the deployment pipeline using Ruby, Shell, Jenkins & Travis.", 
+                "Deployed using: IBM Cloud, Kubernetes, Calico, Docker, Cloudflare & Akamai", 
+                "Utilized test driven development strategies limiting code decay with Rspec. ", 
+                "Worked and communicated in an agile international work environment. ", 
+                "Participated in an internal hackathon to provide technological solutions to COVID-19."
+            ]
+        }, 
+        {
+            "Title": "Undergraduate Teaching Assistant", 
+            "Company": "Faculty of Science, Ontario Tech University", 
+            "Date Range" : "September 2019  - December 2019", 
+            "Location" : "Oshawa, Ontario Canada", 
+            "Bullets": [
+                "Conducted and prepared tutorials for first year computer science students in python.",
+                "Answered student questions, marked tests/assignments and invigilated exams. "
+            ]
+        },
+        {
+            "Title": "Game Developer", 
+            "Company": "SQR Lab, Ontario Tech University", 
+            "Date Range" : "April 2019  - August 2019", 
+            "Location" : "Oshawa, Ontario Canada", 
+            "Bullets": [
+                "Developed Serious Games that aid users in Program Comprehension and Debugging.",
+                "Refactored the majority of the project, incorporating software design patterns and Unity optimizations for up to a 20 second reduction in load times.  ",
+                "Heavily involved in creative tasks, such as the introduction of new features, creation of story with respective animations and implementation of new gameplay mechanics."
+            ]
+        }
+    ]
+}

@@ -6,7 +6,6 @@ import {motion, useAnimation} from 'framer-motion';
 function SkillOptions(props){
     const callback = props.callback; 
     const options = props.options; 
-    const selected = props.selected; 
 
 
     const click = (option) => {
@@ -63,7 +62,7 @@ function SkillOptions(props){
                     <Row>
                         {options.map((value) => 
                             <Col>
-                                <UnderliningButton callback={() => click(value)} value={value} isSelected={value == selected}>
+                                <UnderliningButton callback={() => click(value)} value={value} isSelected={value === props.selected}>
                                     {value}
                                 </UnderliningButton>
                             </Col>
