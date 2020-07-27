@@ -1,6 +1,6 @@
 ## Personal Website
 
-The purpose of this website is to display my intersts and capabiliteis in a professional capacity. 
+The purpose of this website is to display my interests and capabilities in a professional capacity. 
 
 The website's main technologies are: 
 
