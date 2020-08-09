@@ -73,8 +73,8 @@ function ExperienceItem(props){
               animate={anim}
         >
             <div className={style.jobOption}>
-                <h2>{data['title']}</h2>
-                <h3>{data['company']}</h3>
+                <h2>{data['Title']}</h2>
+                <h3>{data['Company']}</h3>
             </div>
         </motion.div>
     ); 

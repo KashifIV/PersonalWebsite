@@ -6,7 +6,7 @@ import data from '../data/experience.json';
 function Experience(props){
 
     const callback = props.callback; 
-    const options = data['experience'].map((value) => {return {'title': value['Title'], 'company':value['Company']}})
+    const options = data['experience']; 
 
 
     const back = () => {
