@@ -41,7 +41,7 @@ function TitleHeader(props){
 
     return <div className={style.headerContent}>
         <motion.div animate={box_slide} style={{y:200, opacity: 0}}>
-            <Button primary onClick={click}>
+            <Button primary onClick={click} style={{width: 500, height: 60, backgroundColor:'black'}}>
                 {name}
             </Button>
         </motion.div>

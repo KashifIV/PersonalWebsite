@@ -1,9 +1,8 @@
-.experienceTitle{
-    font-size: calc(10px + 8vmin);
-    text-align: center;
-    padding: 1px; 
-    text-shadow: 3px 5px #000000;
-    align-content: center;
+.darken{
+    background-color: black;
+    opacity: 0.5;
+    width: 200px;
+    height: 200;
 }
 .jobOption{
     padding: 20px;    
